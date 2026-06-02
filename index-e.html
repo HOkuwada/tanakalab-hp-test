@@ -11,66 +11,9 @@
 
 <div id="container">
 
-  <!-- ========== HEADER ========== -->
-  <header id="header">
-
-    <!-- Top Row: Title + Institutions + Language Links (White Background) -->
-    <div class="header-top">
-      <h1>
-        Kenji Tanaka Laboratory
-        <span class="subtitle">Kenji TANAKA Lab.</span>
-      </h1>
-      <nav class="lang-links">
-        <a href="index.html">Japanese</a>
-        <a href="index-e.html" aria-current="page" class="active">English</a>
-      </nav>
-    </div>
-
-    <!-- Bottom Row: Affiliation (Blue Background) -->
-    <div class="header-affiliation">
-      <div class="affiliation-row">
-        <div class="affiliation-text">
-          <p>Interdisciplinary Graduate School of Engineering Sciences, Kyushu University</p>
-          <p>Plasma and Quantum Engineering Major (Collaborative Course)</p>
-        </div>
-        <a href="https://www.aees.kyushu-u.ac.jp/en/" target="_blank" rel="noopener" class="affiliation-logo" title="Kyushu University IGSES">
-          <img src="image/logosoriko.png" alt="Kyushu University IGSES">
-        </a>
-      </div>
-      <div class="affiliation-row">
-        <div class="affiliation-text">
-          <p>National Institute for Fusion Science (NIFS)</p>
-          <p>Visualizing Sensing Unit</p>
-        </div>
-        <a href="https://www.nifs.ac.jp/en/" target="_blank" rel="noopener" class="affiliation-logo" title="National Institute for Fusion Science">
-          <img src="image/nifslogo.png" alt="National Institute for Fusion Science (NIFS)">
-        </a>
-      </div>
-    </div>
-
-  </header>
-
-  <!-- ========== NAVIGATION (Responsive Hamburger Menu) ========== -->
-  <input type="checkbox" id="nav-toggle">
-  <label for="nav-toggle" class="nav-toggle-label">Menu</label>
-  <nav id="nav">
-    <ul>
-      <li><a href="about-e.html">About Our Lab</a></li>
-      <li><a href="member-e.html">Members</a></li>
-      <li><a href="nuclear_fusion-e.html">What is Nuclear Fusion</a></li>
-      <li><a href="lhd-e.html">Large Helical Device (LHD)</a></li>
-      <li><a href="plasma-e.html">Plasma Experiments</a></li>
-      <li><a href="collective-e.html">Interferometry &amp;<br>Thomson Scattering</a></li>
-      <li><a href="research-e.html">Research</a></li>
-      <li><a href="education-e.html">Graduate Education</a></li>
-      <li><a href="doctor-e.html">Postdoc Opportunities</a></li>
-      <li><a href="lecture-e.html">Lectures &amp; Presentations</a></li>
-      <li><a href="photo-e.html">Activities &amp; News</a></li>
-      <li><a href="activities-e.html">Photo Gallery</a></li>
-      <li><a href="faq-e.html">Ask Prof. Tanaka (FAQ)</a></li>
-      <li><a href="access-e.html">Access</a></li>
-    </ul>
-  </nav>
+  <!-- 共通パーツ(common.jsが自動挿入) -->
+  <div id="site-header"></div>
+  <div id="site-nav"></div>
 
   <!-- ========== MAIN CONTENT ========== -->
   <main id="contents">
@@ -161,33 +104,62 @@
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
-  <footer id="footer">
-
-    <!-- KAKENHI Banner -->
-    <div class="footer-kakenhi">
-      <a href="https://kaken.nii.ac.jp/en/" target="_blank" rel="noopener">
-        <img src="image/bn_kakenhi.jpg" alt="Grants-in-Aid for Scientific Research (KAKENHI)">
-      </a>
-    </div>
-
-    <!-- Access Counter -->
-    <div class="footer-counter">
-      <span class="label">Visitors:</span>
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?6" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?5" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?4" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?3" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?2" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?1" alt="">
-    </div>
-
-    <p class="notice">Unauthorized reproduction prohibited</p>
-    <p class="copyright">Copyright &copy; Kenji TANAKA Lab., All rights reserved.</p>
-
-  </footer>
-
+  <!-- 共通パーツ(common.jsが自動挿入) -->
+  <div id="site-footer"></div>
+ 
 </div>
-
+ 
+<!-- ===== スライダー動作スクリプト ===== -->
+<script>
+(function(){
+  var slider = document.getElementById('heroSlider');
+  if (!slider) return;
+  var slides = slider.querySelector('.hero-slides');
+  var dotsBox = slider.querySelector('.hero-dots');
+  var prev = slider.querySelector('.hero-prev');
+  var next = slider.querySelector('.hero-next');
+  var total = slides.children.length;
+  var current = 0;
+  var timer = null;
+  var DURATION = 4500;
+ 
+  // ドット生成
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', (i + 1) + '枚目');
+    dot.setAttribute('data-index', i);
+    dot.addEventListener('click', function() {
+      go(parseInt(this.getAttribute('data-index'), 10));
+      restart();
+    });
+    dotsBox.appendChild(dot);
+  }
+  var dots = dotsBox.querySelectorAll('.hero-dot');
+ 
+  function go(n) {
+    current = (n + total) % total;
+    slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+    for (var j = 0; j < dots.length; j++) {
+      if (j === current) dots[j].classList.add('active');
+      else dots[j].classList.remove('active');
+    }
+  }
+  function start() { timer = setInterval(function(){ go(current + 1); }, DURATION); }
+  function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stop(); start(); }
+ 
+  prev.addEventListener('click', function(){ go(current - 1); restart(); });
+  next.addEventListener('click', function(){ go(current + 1); restart(); });
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+ 
+  start();
+})();
+</script>
+ 
+<!-- ===== 共通パーツ(ヘッダー・ナビ・フッター) ===== -->
+<script src="common.js"></script>
+<script>initPage("index.html");</script>
 </body>
 </html>
