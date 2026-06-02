@@ -11,66 +11,9 @@
 
 <div id="container">
 
-  <!-- ========== ヘッダー ========== -->
-  <header id="header">
-
-    <!-- 上段:タイトル + 機関名 + 言語切替(白背景) -->
-    <div class="header-top">
-      <h1>
-        田中謙治研究室
-        <span class="subtitle">Kenji TANAKA Lab.</span>
-      </h1>
-      <nav class="lang-links">
-        <a href="index.html">Home</a>
-        <a href="index-e.html">English</a>
-      </nav>
-    </div>
-
-    <!-- 下段:所属 + 各機関ロゴ(青背景) -->
-    <div class="header-affiliation">
-      <div class="affiliation-row">
-        <div class="affiliation-text">
-          <p>九州大学大学院総合理工学府総合理工学専攻</p>
-          <p>Ⅱ類プラズマ・量子理工学メジャー(連携講座)</p>
-        </div>
-        <a href="https://www.aees.kyushu-u.ac.jp/" target="_blank" rel="noopener" class="affiliation-logo" title="九州大学大学院総合理工学府">
-          <img src="image/logosoriko.png" alt="九州大学総合理工学府">
-        </a>
-      </div>
-      <div class="affiliation-row">
-        <div class="affiliation-text">
-          <p>自然科学研究機構 核融合科学研究所</p>
-          <p>可知化センシングユニット</p>
-        </div>
-        <a href="https://www.nifs.ac.jp/" target="_blank" rel="noopener" class="affiliation-logo" title="自然科学研究機構 核融合科学研究所">
-          <img src="image/nifslogo.png" alt="核融合科学研究所(NIFS)">
-        </a>
-      </div>
-    </div>
-
-  </header>
-
-  <!-- ========== ナビゲーション(ハンバーガー対応) ========== -->
-  <input type="checkbox" id="nav-toggle">
-  <label for="nav-toggle" class="nav-toggle-label">メニュー</label>
-  <nav id="nav">
-    <ul>
-      <li><a href="about.html">研究室の概要</a></li>
-      <li><a href="member.html">メンバー</a></li>
-      <li><a href="nuclear_fusion.html">核融合とは</a></li>
-      <li><a href="lhd.html">大型ヘリカル装置</a></li>
-      <li><a href="plasma.html">プラズマ実験</a></li>
-      <li><a href="collective.html">干渉計測と<br>トムソン散乱計測</a></li>
-      <li><a href="research.html">研究紹介</a></li>
-      <li><a href="education.html">大学院教育</a></li>
-      <li><a href="doctor.html">博士研究員</a></li>
-      <li><a href="lecture.html">講義・講演資料</a></li>
-      <li><a href="photo.html">活動状況</a></li>
-      <li><a href="activities.html">フォトギャラリー</a></li>
-      <li><a href="faq.html">田中先生に<br>聞いてみよう</a></li>
-      <li><a href="access.html" aria-current="page" class="active">交通アクセス</a></li>
-    </ul>
-  </nav>
+  <!-- 共通パーツ(common.jsが自動挿入) -->
+  <div id="site-header"></div>
+  <div id="site-nav"></div>
 
   <!-- ========== メインコンテンツ ========== -->
   <main id="contents">
@@ -104,33 +47,13 @@
 
   </main>
 
-  <!-- ========== フッター ========== -->
-  <footer id="footer">
-
-    <!-- 科研費バナー -->
-    <div class="footer-kakenhi">
-      <a href="https://kaken.nii.ac.jp/" target="_blank" rel="noopener">
-        <img src="image/bn_kakenhi.jpg" alt="科学研究費補助金">
-      </a>
-    </div>
-
-    <!-- アクセスカウンター -->
-    <div class="footer-counter">
-      <span class="label">来訪者数:</span>
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?6" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?5" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?4" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?3" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?2" alt="">
-      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?1" alt="">
-    </div>
-
-    <p class="notice">無断転載を禁ず</p>
-    <p class="copyright">Copyright &copy; Kenji TANAKA Lab., All rights reserved.</p>
-
-  </footer>
-
+  <!-- 共通パーツ(common.jsが自動挿入) -->
+  <div id="site-footer"></div>
+ 
 </div>
+  <!-- ===== 共通パーツ(ヘッダー・ナビ・フッター) ===== -->
+<script src="common.js"></script>
+<script>initPage("index.html");</script>
 
 </body>
 </html>
