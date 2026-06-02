@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>交通アクセス -田中謙治研究室</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="header"> <img src="image/header_2.gif" name="toptitle2" border="0" usemap="#toptitle2Map" id="toptitle2" width="910">
+    <map name="toptitle2Map">
+      <area shape="rect" coords="762,86,806,101" href="index.html" alt="田中謙治研究室ホーム">
+      <area shape="rect" coords="830,86,884,101" href="index-e.html" alt="English　Home">
+    </map>
+    <h1><img src="image/toptitle.gif" alt="田中謙治研究室" name="toptitle1" id="toptitle1"></h1>
+  </div>
+  <div id="contents">
+    <h2>交通アクセス</h2>
+    <div class="text">
+      <h3 class="mt0">名古屋駅から多治見駅</h3>
+      <ul>
+  <li>JR中央線（多治見、土岐市、中津川方面）に乗り、多治見駅下車。(約40分)</li>
+</ul>
+      <h3>多治見駅から研究所まで</h3>
+      <ul>
+        <li>多治見駅　南口</li>
+        <li>東濃鉄道</li>
+        <li>研究学研都市に乗り、「研究学研都市センター」で下車。</li>
+      </ul>
+      <p class="mt20">※タクシーの場合は約15分</p>
+      <p class="mt15">詳細は、核融合科学研究所の<a href="https://www.nifs.ac.jp/access.html" target="_blank">交通アクセス</a>を参照ください。 </p>
+      <p align="right"><a href="index.html">トップページへ戻る</a></p>
+    </div>
+  </div>
+  <div id="footer"><img src="image/copyright.gif" alt="Copyright Kenji TANAKA Lab., All rights reserved."></div>
+</div>
+</body>
+</html>
