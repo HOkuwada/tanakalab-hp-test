@@ -154,15 +154,24 @@ a:hover, a:focus {
   color: #fff;
   padding: 1rem 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
 .affiliation-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.2rem;
+  gap: 0.9rem;
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+/* 機関の間に細い区切り線 */
+.affiliation-row + .affiliation-row {
+  border-left: 1px solid rgba(255,255,255,0.22);
+  padding-left: 1.5rem;
 }
 
 .affiliation-text {
@@ -204,7 +213,7 @@ a:hover, a:focus {
 }
 
 .affiliation-logo img {
-  height: 50px !important;
+  height: 22px !important;
   width: auto !important;
   max-width: none !important;
   max-height: none !important;
@@ -638,8 +647,9 @@ img.ic { vertical-align: middle; }
     font-size: 0.72rem;
   }
 
-  /* ヘッダー下段(所属&ロゴ・青背景) */
+  /* ヘッダー下段(所属&ロゴ・青背景)スマホでは縦並び */
   .header-affiliation {
+    flex-direction: column;
     padding: 0.8rem 1rem;
     gap: 0.7rem;
   }
@@ -647,6 +657,12 @@ img.ic { vertical-align: middle; }
     flex-direction: row;
     align-items: center;
     gap: 0.7rem;
+    flex: 1 1 auto;
+  }
+  /* 区切り線解除 */
+  .affiliation-row + .affiliation-row {
+    border-left: none;
+    padding-left: 0;
   }
   .affiliation-text {
     font-size: 0.74rem;
