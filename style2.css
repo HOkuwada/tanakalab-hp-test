@@ -478,19 +478,84 @@ ol li { padding: 0.15rem 0; }
 /* --- テーブル(メンバー一覧など) --- */
 table.member {
   width: 100%;
-  margin: 1.2rem auto;
+  margin: 0 0 1rem;
   border-collapse: collapse;
   border-top: 1px solid var(--color-border);
 }
 
 table.member td {
-  padding: 0.7rem 0.8rem;
+  padding: 0.55rem 0.7rem;
   border-bottom: 1px solid var(--color-border);
   vertical-align: top;
+  font-size: 0.92rem;
 }
 
 table.member tr:nth-child(odd) {
   background-color: var(--color-bg-alt);
+}
+
+/* --- メンバー一覧用 --- */
+.member-section {
+  margin: 2rem 0;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px dotted #c5cad6;
+}
+
+.member-section:last-of-type {
+  border-bottom: none;
+}
+
+.member-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.member-content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.member-photo {
+  text-align: center;
+}
+
+.member-photo img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.member-photo .figcaption {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.member-info p {
+  margin: 0.6rem 0;
+  text-indent: 0;
+}
+
+.member-info p.bio {
+  background: var(--color-bg-alt);
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--color-primary-light);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+}
+
+.member-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-bg);
+  padding: 0.15rem 0.6rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
 }
 
 /* --- フッター --- */
@@ -781,8 +846,18 @@ img.ic { vertical-align: middle; }
   .w40, .w45, .w50 { width: 80%; }
 
   /* テーブル */
-  table.member { font-size: 0.92rem; }
-  table.member td { padding: 0.5rem 0.5rem; }
+  table.member { font-size: 0.88rem; }
+  table.member td { padding: 0.45rem 0.5rem; }
+
+  /* メンバーセクション スマホでは縦並び */
+  .member-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .member-photo {
+    max-width: 180px;
+    margin: 0 auto;
+  }
 
   /* スライダー(スマホでは矢印非表示) */
   .hero-arrow { display: none; }
