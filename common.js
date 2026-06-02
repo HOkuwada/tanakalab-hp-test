@@ -7,7 +7,6 @@
 var SITE = {
   title: "田中謙治研究室",
   subtitle: "Kenji TANAKA Lab.",
-  institutions: ["九州大学", "核融合科学研究所"],
   affiliations: [
     {
       lines: ["九州大学大学院総合理工学府総合理工学専攻", "Ⅱ類プラズマ・量子理工学メジャー(連携講座)"],
