@@ -18,7 +18,7 @@
     <div class="header-top">
       <h1>
         田中謙治研究室
-        <span class="subtitle">Kenji TANAKA Lab.</span>
+        <span class="subtitle">KENJI TANAKA LABORATORY</span>
       </h1>
       <nav class="lang-links">
         <a href="index2.html" aria-current="page">Home</a>
@@ -34,10 +34,10 @@
       </div>
       <div class="affiliation-logos">
         <a href="https://www.aees.kyushu-u.ac.jp/" target="_blank" rel="noopener" title="九州大学大学院総合理工学府">
-          <img src="image/logosoriko.gif" alt="九州大学総合理工学府">
+          <img src="image/logosoriko.png" alt="九州大学総合理工学府">
         </a>
         <a href="https://www.nifs.ac.jp/" target="_blank" rel="noopener" title="自然科学研究機構 核融合科学研究所">
-          <img src="image/nifslogo.png" alt="核融合科学研究所(NIFS)">
+          <img src="image/nifslog.png" alt="核融合科学研究所(NIFS)">
         </a>
       </div>
     </div>
@@ -69,19 +69,70 @@
   <!-- ========== メインコンテンツ ========== -->
   <main id="contents">
 
-    <!-- トップ画像(ランダム表示) -->
-    <div class="hero-image">
-      <script>
-      (function(){
-        var imgs = [
-          "image/top.jpg","image/top2.jpg","image/top3.jpg","image/top4.jpg",
-          "image/top5.jpg","image/top6.jpg","image/top7.jpg","image/top8.jpg"
-        ];
-        var n = Math.floor(Math.random() * imgs.length);
-        document.write('<img src="' + imgs[n] + '" alt="研究室の活動風景">');
-      })();
-      </script>
+    <!-- トップ画像スライダー -->
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slides">
+        <img src="image/top.jpg" alt="研究室の活動風景1">
+        <img src="image/top2.jpg" alt="研究室の活動風景2">
+        <img src="image/top3.jpg" alt="研究室の活動風景3">
+        <img src="image/top4.jpg" alt="研究室の活動風景4">
+        <img src="image/top5.jpg" alt="研究室の活動風景5">
+        <img src="image/top6.jpg" alt="研究室の活動風景6">
+        <img src="image/top7.jpg" alt="研究室の活動風景7">
+        <img src="image/top8.jpg" alt="研究室の活動風景8">
+      </div>
+      <button class="hero-arrow hero-prev" aria-label="前の画像">&#10094;</button>
+      <button class="hero-arrow hero-next" aria-label="次の画像">&#10095;</button>
+      <div class="hero-dots" role="tablist"></div>
     </div>
+
+    <script>
+    (function(){
+      var slider = document.getElementById('heroSlider');
+      if (!slider) return;
+      var slides = slider.querySelector('.hero-slides');
+      var dotsBox = slider.querySelector('.hero-dots');
+      var prev = slider.querySelector('.hero-prev');
+      var next = slider.querySelector('.hero-next');
+      var total = slides.children.length;
+      var current = 0;
+      var timer = null;
+      var DURATION = 4500;
+
+      // ドット生成
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', (i + 1) + '枚目');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('click', function() {
+          go(parseInt(this.getAttribute('data-index'), 10));
+          restart();
+        });
+        dotsBox.appendChild(dot);
+      }
+      var dots = dotsBox.querySelectorAll('.hero-dot');
+
+      function go(n) {
+        current = (n + total) % total;
+        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+        for (var j = 0; j < dots.length; j++) {
+          if (j === current) dots[j].classList.add('active');
+          else dots[j].classList.remove('active');
+        }
+      }
+      function start() { timer = setInterval(function(){ go(current + 1); }, DURATION); }
+      function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+      function restart() { stop(); start(); }
+
+      prev.addEventListener('click', function(){ go(current - 1); restart(); });
+      next.addEventListener('click', function(){ go(current + 1); restart(); });
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+
+      start();
+    })();
+    </script>
 
     <div class="text">
       <p class="noindent">
