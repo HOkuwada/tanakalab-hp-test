@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中謙治研究室</title>
+<meta name="description" content="九州大学大学院総合理工学府 田中謙治研究室。核融合科学研究所と連携で、大型ヘリカル装置(LHD)におけるレーザー・マイクロ波を用いたプラズマ計測研究を行っています。">
+<link href="style2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="container">
+
+  <!-- ========== ヘッダー ========== -->
+  <header id="header">
+    <h1>
+      田中謙治研究室
+      <span class="subtitle">KENJI TANAKA LABORATORY</span>
+    </h1>
+    <nav class="lang-links">
+      <a href="index2.html" aria-current="page">Home</a>
+      <a href="index-e.html">English</a>
+    </nav>
+  </header>
+
+  <!-- ========== ナビゲーション(ハンバーガー対応) ========== -->
+  <input type="checkbox" id="nav-toggle">
+  <label for="nav-toggle" class="nav-toggle-label">メニュー</label>
+  <nav id="nav">
+    <ul>
+      <li><a href="about.html">研究室の概要</a></li>
+      <li><a href="member.html">メンバー</a></li>
+      <li><a href="nuclear_fusion.html">核融合とは</a></li>
+      <li><a href="lhd.html">大型ヘリカル装置</a></li>
+      <li><a href="plasma.html">プラズマ実験</a></li>
+      <li><a href="collective.html">干渉計測と<br>トムソン散乱計測</a></li>
+      <li><a href="research.html">研究紹介</a></li>
+      <li><a href="education.html">大学院教育</a></li>
+      <li><a href="doctor.html">博士研究員</a></li>
+      <li><a href="lecture.html">講義・講演資料</a></li>
+      <li><a href="photo.html">活動状況</a></li>
+      <li><a href="activities.html">フォトギャラリー</a></li>
+      <li><a href="faq.html">田中先生に<br>聞いてみよう</a></li>
+      <li><a href="access.html">交通アクセス</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== メインコンテンツ ========== -->
+  <main id="contents">
+
+    <!-- トップ画像(ランダム表示) -->
+    <div class="hero-image">
+      <script>
+      (function(){
+        var imgs = [
+          "image/top.jpg","image/top2.jpg","image/top3.jpg","image/top4.jpg",
+          "image/top5.jpg","image/top6.jpg","image/top7.jpg","image/top8.jpg"
+        ];
+        var n = Math.floor(Math.random() * imgs.length);
+        document.write('<img src="' + imgs[n] + '" alt="研究室の活動風景">');
+      })();
+      </script>
+    </div>
+
+    <div class="text">
+      <p class="noindent">
+        本研究室は核融合科学研究所に付設された九州大学大学院総合理工学府総合理工学専攻Ⅱ類プラズマ・量子理工学メジャーの連携講座(プラズマ科学研究室)です。核融合研の大型ヘリカル装置(Large Helical Device; LHD)においてレーザーおよびマイクロ波を使ったプラズマ計測手法の開発とそれを用いたプラズマ物理研究を行っています。
+      </p>
+      <p class="noindent">
+        核融合研での研究生活は「フォトギャラリー」からご確認ください。<br>
+        <b><a href="photo.html">研究室の活動状況</a></b>は随時更新しています。<br>
+        (最終更新日:2026/6/1)<br>
+        <span class="color">※連絡先がtanaka.kenji(at)nifs.ac.jpに変更になりました。</span>
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ========== フッター ========== -->
+  <footer id="footer">
+
+    <!-- 科研費バナー(リンク先は要URL指定) -->
+    <div class="footer-kakenhi">
+      <a href="https://kaken.nii.ac.jp/" target="_blank" rel="noopener">
+        <img src="image/bn_kakenhi.jpg" alt="科学研究費補助金">
+      </a>
+    </div>
+
+    <!-- アクセスカウンター -->
+    <div class="footer-counter">
+      <span class="label">来訪者数:</span>
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?6" alt="">
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?5" alt="">
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?4" alt="">
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?3" alt="">
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?2" alt="">
+      <img src="http://www.cis-trans.jp/nifs_tanaka/counter/ecount.cgi?1" alt="">
+    </div>
+
+    <p class="notice">無断転載を禁ず</p>
+    <p class="copyright">Copyright &copy; Kenji TANAKA Lab., All rights reserved.</p>
+
+  </footer>
+
+</div>
+
+</body>
+</html>
