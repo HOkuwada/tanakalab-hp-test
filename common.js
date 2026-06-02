@@ -198,4 +198,31 @@ function initPage(currentHref, lang) {
   // フッター挿入
   var footerEl = document.getElementById('site-footer');
   if (footerEl) footerEl.innerHTML = buildFooter(data);
+
+  // MathJax (TeX形式の数式を表示。$...$と$$...$$に対応)
+  loadMathJax();
+}
+
+/* ========== MathJax 読み込み ========== */
+function loadMathJax() {
+  if (window.MathJax) return; // すでに読み込み済み
+
+  // MathJax設定(スクリプトより先に)
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: { fontCache: 'global' },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+
+  // MathJaxスクリプト読み込み
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+  s.async = true;
+  document.head.appendChild(s);
 }
