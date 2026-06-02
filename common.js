@@ -149,7 +149,9 @@ function buildNav(currentHref, data) {
     var isCurrent = (item.href === currentHref);
     var textHtml = item.text.replace(/\n/g, '<br>');
     var cls = isCurrent ? ' aria-current="page" class="active"' : '';
-    var imgTag = item.img ? '<img class="nav-icon" src="' + item.img + '" alt="">' : '';
+    var imgTag = item.img
+      ? '<span class="nav-icon-wrap"><img class="nav-icon" src="' + item.img + '" alt=""></span>'
+      : '';
     return '<li><a href="' + item.href + '"' + cls + '>' +
       imgTag + '<span class="nav-text">' + textHtml + '</span></a></li>';
   }).join('');
