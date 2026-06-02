@@ -283,14 +283,26 @@ a:hover, a:focus {
   height: 100%;
 }
 
-/* ナビアイコン(旧nav*.gif画像) */
+/* ナビアイコン(旧nav*.gif画像) - 左側のサムネ部分だけクリップ表示 */
+.nav-icon-wrap {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
 .nav-icon {
   display: block;
-  height: 18px;
-  width: auto;
-  max-width: 100%;
-  opacity: 0.7;
+  height: 100% !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  opacity: 0.92;
   transition: opacity 0.2s;
+  object-position: left center;
 }
 
 #nav a:hover .nav-icon,
@@ -870,14 +882,15 @@ img.ic { vertical-align: middle; }
 
   #nav a {
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 0.6rem;
     font-size: 0.82rem;
-    padding: 0.7rem 0.5rem;
+    padding: 0.7rem 0.6rem;
     text-align: left;
     justify-content: flex-start;
   }
-  .nav-icon {
-    height: 16px;
+  .nav-icon-wrap {
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
   }
 
