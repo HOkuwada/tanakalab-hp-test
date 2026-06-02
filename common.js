@@ -51,24 +51,27 @@ var SITE = {
 
 /* ========== ヘッダー生成 ========== */
 function buildHeader() {
-  var inst = SITE.institutions.map(function(s){ return '<p>' + s + '</p>'; }).join('');
+  // 上段用ロゴ
+  var topLogos = SITE.affiliations.map(function(a){
+    return '<a href="' + a.logoHref + '" target="_blank" rel="noopener" class="header-logo" title="' + a.logoTitle + '">' +
+      '<img src="' + a.logoSrc + '" alt="' + a.logoAlt + '">' +
+    '</a>';
+  }).join('');
 
+  // 下段用 所属テキストのみ
   var rows = SITE.affiliations.map(function(a){
     return '<div class="affiliation-row">' +
       '<div class="affiliation-text">' +
         '<p>' + a.lines[0] + '</p>' +
         '<p>' + a.lines[1] + '</p>' +
       '</div>' +
-      '<a href="' + a.logoHref + '" target="_blank" rel="noopener" class="affiliation-logo" title="' + a.logoTitle + '">' +
-        '<img src="' + a.logoSrc + '" alt="' + a.logoAlt + '">' +
-      '</a>' +
     '</div>';
   }).join('');
 
   return '<header id="header">' +
     '<div class="header-top">' +
       '<h1>' + SITE.title + '<span class="subtitle">' + SITE.subtitle + '</span></h1>' +
-      '<div class="header-institutions">' + inst + '</div>' +
+      '<div class="header-top-logos">' + topLogos + '</div>' +
       '<nav class="lang-links">' +
         '<a href="index.html">Home</a>' +
         '<a href="index-e.html">English</a>' +
