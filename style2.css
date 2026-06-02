@@ -174,8 +174,10 @@ a:hover, a:focus {
 }
 
 .affiliation-logos img {
-  max-height: 38px;
+  height: 30px;
   width: auto;
+  max-width: none;
+  max-height: none;
   display: block;
 }
 
@@ -248,17 +250,103 @@ a:hover, a:focus {
   min-height: 50vh;
 }
 
-/* --- メインビジュアル(トップページの大きい画像) --- */
-.hero-image {
-  margin: 0 0 1.8rem;
-  text-align: center;
-}
-
-.hero-image img {
-  width: 100%;
-  max-width: 700px;
+/* --- メインビジュアル(スライダー) --- */
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto 1.8rem;
   border-radius: 4px;
   box-shadow: 0 4px 16px rgba(74, 101, 169, 0.15);
+  background: var(--color-bg-alt);
+}
+
+.hero-slides {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-slides img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: none;
+}
+
+/* 矢印ボタン(PCはホバーで出現) */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, opacity 0.25s, transform 0.2s;
+  z-index: 2;
+  opacity: 0;
+  padding: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.hero-slider:hover .hero-arrow {
+  opacity: 1;
+}
+
+.hero-arrow:hover {
+  background: #fff;
+}
+
+.hero-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.hero-prev { left: 12px; }
+.hero-next { right: 12px; }
+
+/* ドットインジケータ */
+.hero-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.hero-dot.active {
+  background: #fff;
+  transform: scale(1.35);
 }
 
 /* --- 見出し --- */
@@ -533,7 +621,8 @@ img.ic { vertical-align: middle; }
     align-self: center;
   }
   .affiliation-logos img {
-    max-height: 30px;
+    height: 24px;
+    max-height: none;
   }
 
   /* ナビ:ハンバーガー(押すと展開、2列) */
@@ -641,6 +730,11 @@ img.ic { vertical-align: middle; }
   /* テーブル */
   table.member { font-size: 0.92rem; }
   table.member td { padding: 0.5rem 0.5rem; }
+
+  /* スライダー(スマホでは矢印非表示) */
+  .hero-arrow { display: none; }
+  .hero-dots { bottom: 8px; padding: 4px 8px; }
+  .hero-dot { width: 7px; height: 7px; }
 
   /* フッター */
   #footer { padding: 1.5rem 1rem; }
