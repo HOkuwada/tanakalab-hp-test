@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ============================================
-   田中謙治研究室 HP - 新CSS (style.css)
+   田中謙治研究室 HP - 新CSS (style2.css)
    2026年版 レスポンシブ対応
    ============================================ */
 
@@ -496,6 +496,26 @@ ol li { padding: 0.15rem 0; }
 .figure_fr img, .figure_fl img {
   margin: 0.2rem 0 0.4rem;
   border-radius: 3px;
+}
+
+/* レスポンシブiframe(YouTube埋め込み等) */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .figcaption {
