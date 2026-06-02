@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ============================================
-   田中謙治研究室 HP - 新CSS (style2.css)
+   田中謙治研究室 HP - 新CSS (style.css)
    2026年版 レスポンシブ対応
    ============================================ */
 
@@ -316,12 +316,16 @@ a:hover, a:focus {
 /* --- メインビジュアル(スライダー) --- */
 .hero-slider {
   position: relative;
-  overflow: hidden;
   max-width: 600px;
   margin: 0 auto 1.8rem;
+  background: var(--color-bg-alt);
+}
+
+.hero-slides-wrap {
+  position: relative;
+  overflow: hidden;
   border-radius: 4px;
   box-shadow: 0 4px 16px rgba(74, 101, 169, 0.15);
-  background: var(--color-bg-alt);
 }
 
 .hero-slides {
@@ -362,6 +366,7 @@ a:hover, a:focus {
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
+.hero-slides-wrap:hover .hero-arrow,
 .hero-slider:hover .hero-arrow {
   opacity: 1;
 }
@@ -377,38 +382,32 @@ a:hover, a:focus {
 .hero-prev { left: 12px; }
 .hero-next { right: 12px; }
 
-/* ドットインジケータ */
+/* ドットインジケータ(画像の下に配置) */
 .hero-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 7px;
-  z-index: 2;
-  padding: 6px 10px;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.8rem;
+  padding: 0;
 }
 
 .hero-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--color-border);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s, transform 0.2s;
 }
 
 .hero-dot:hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--color-primary-light);
 }
 
 .hero-dot.active {
-  background: #fff;
+  background: var(--color-primary);
   transform: scale(1.35);
 }
 
@@ -893,8 +892,8 @@ img.ic { vertical-align: middle; }
 
   /* スライダー(スマホでは矢印非表示) */
   .hero-arrow { display: none; }
-  .hero-dots { bottom: 8px; padding: 4px 8px; }
-  .hero-dot { width: 7px; height: 7px; }
+  .hero-dots { margin-top: 0.6rem; gap: 6px; }
+  .hero-dot { width: 8px; height: 8px; }
 
   /* フッター */
   #footer { padding: 1.5rem 1rem; }
