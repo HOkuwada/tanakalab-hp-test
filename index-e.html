@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kenji TANAKA Lab. - Kyushu University & NIFS</title>
-<meta name="description" content="Kenji Tanaka Laboratory (Collaborative Course). We are developing advanced laser and microwave diagnostics and studying high-temperature plasma physics on the Large Helical Device (LHD) at the National Institute for Fusion Science (NIFS).">
+<meta name="description" content="Kenji Tanaka Laboratory (Cooperative Course). We are developing advanced laser and microwave diagnostics and studying high-temperature plasma physics on the Large Helical Device (LHD) at the National Institute for Fusion Science (NIFS).">
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -20,74 +20,26 @@
 
     <!-- Hero Image Slider -->
     <div class="hero-slider" id="heroSlider">
-      <div class="hero-slides">
-        <img src="image/top.jpg" alt="Lab Activities 1">
-        <img src="image/top2.jpg" alt="Lab Activities 2">
-        <img src="image/top3.jpg" alt="Lab Activities 3">
-        <img src="image/top4.jpg" alt="Lab Activities 4">
-        <img src="image/top5.jpg" alt="Lab Activities 5">
-        <img src="image/top6.jpg" alt="Lab Activities 6">
-        <img src="image/top7.jpg" alt="Lab Activities 7">
-        <img src="image/top8.jpg" alt="Lab Activities 8">
+      <div class="hero-slides-wrap">
+        <div class="hero-slides">
+          <img src="image/top.jpg" alt="Lab Activities 1">
+          <img src="image/top2.jpg" alt="Lab Activities 2">
+          <img src="image/top3.jpg" alt="Lab Activities 3">
+          <img src="image/top4.jpg" alt="Lab Activities 4">
+          <img src="image/top5.jpg" alt="Lab Activities 5">
+          <img src="image/top6.jpg" alt="Lab Activities 6">
+          <img src="image/top7.jpg" alt="Lab Activities 7">
+          <img src="image/top8.jpg" alt="Lab Activities 8">
+        </div>
+        <button class="hero-arrow hero-prev" aria-label="Previous slide">&#10094;</button>
+        <button class="hero-arrow hero-next" aria-label="Next slide">&#10095;</button>
       </div>
-      <button class="hero-arrow hero-prev" aria-label="Previous slide">&#10094;</button>
-      <button class="hero-arrow hero-next" aria-label="Next slide">&#10095;</button>
       <div class="hero-dots" role="tablist"></div>
     </div>
 
-    <!-- Slider Script -->
-    <script>
-    (function(){
-      var slider = document.getElementById('heroSlider');
-      if (!slider) return;
-      var slides = slider.querySelector('.hero-slides');
-      var dotsBox = slider.querySelector('.hero-dots');
-      var prev = slider.querySelector('.hero-prev');
-      var next = slider.querySelector('.hero-next');
-      var total = slides.children.length;
-      var current = 0;
-      var timer = null;
-      var DURATION = 4500;
-
-      // Generate Dots
-      for (var i = 0; i < total; i++) {
-        var dot = document.createElement('button');
-        dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-        dot.setAttribute('data-index', i);
-        dot.addEventListener('click', function() {
-          go(parseInt(this.getAttribute('data-index'), 10));
-          restart();
-        });
-        dotsBox.appendChild(dot);
-      }
-      var dots = dotsBox.querySelectorAll('.hero-dot');
-
-      function go(n) {
-        current = (n + total) % total;
-        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-        for (var j = 0; j < dots.length; j++) {
-          if (j === current) dots[j].classList.add('active');
-          else dots[j].classList.remove('active');
-        }
-      }
-      function start() { timer = setInterval(function(){ go(current + 1); }, DURATION); }
-      function stop()  { if (timer) { clearInterval(timer); timer = null; } }
-      function restart() { stop(); start(); }
-
-      prev.addEventListener('click', function(){ go(current - 1); restart(); });
-      next.addEventListener('click', function(){ go(current + 1); restart(); });
-      slider.addEventListener('mouseenter', stop);
-      slider.addEventListener('mouseleave', start);
-
-      start();
-    })();
-    </script>
-
-    <!-- Content Text -->
     <div class="text">
       <p class="noindent">
-        We are developing advanced laser and microwave diagnostics and studying high-temperature plasma physics on the Large Helical Device (LHD) at the National Institute for Fusion Science (NIFS). We have developed a laser imaging interferometer for measuring electron density profiles, and phase contrast imaging for micro-turbulence measurements. Recently, we have also focused on developing collective Thomson scattering diagnostics to measure bulk and fast ion dynamics. This laboratory is located at NIFS and belongs to the Kyushu University collaborative course for graduate school education.
+        We are developing advanced laser and microwave diagnostics and studying high-temperature plasma physics on the Large Helical Device (LHD) at the National Institute for Fusion Science (NIFS). We have developed a laser imaging interferometer for measuring electron density profiles, and phase contrast imaging for micro-turbulence measurements. Recently, we have also focused on developing collective Thomson scattering diagnostics to measure bulk and fast ion dynamics. This laboratory is located at NIFS and belongs to the Kyushu University cooperative course for graduate school education.
       </p>
       <p class="noindent mt20">
         Please check our laboratory life in the "Photo Gallery" page.<br>
@@ -95,20 +47,15 @@
         (Last updated: June 1, 2026)<br>
         <span class="color">※ Notice: Our contact email address has been updated to tanaka.kenji(at)nifs.ac.jp</span>
       </p>
-
-      <!-- Original info banner image -->
-      <p class="center mt30">
-        <img src="image/einfo.gif" alt="Laboratory Contact Information" style="max-width: 100%; height: auto;">
-      </p>
     </div>
 
   </main>
 
   <!-- 共通パーツ(common.jsが自動挿入) -->
   <div id="site-footer"></div>
- 
+
 </div>
- 
+
 <!-- ===== スライダー動作スクリプト ===== -->
 <script>
 (function(){
@@ -122,12 +69,12 @@
   var current = 0;
   var timer = null;
   var DURATION = 4500;
- 
-  // ドット生成
+
+  // Generate dots
   for (var i = 0; i < total; i++) {
     var dot = document.createElement('button');
     dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', (i + 1) + '枚目');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
     dot.setAttribute('data-index', i);
     dot.addEventListener('click', function() {
       go(parseInt(this.getAttribute('data-index'), 10));
@@ -136,7 +83,7 @@
     dotsBox.appendChild(dot);
   }
   var dots = dotsBox.querySelectorAll('.hero-dot');
- 
+
   function go(n) {
     current = (n + total) % total;
     slides.style.transform = 'translateX(-' + (current * 100) + '%)';
@@ -148,18 +95,19 @@
   function start() { timer = setInterval(function(){ go(current + 1); }, DURATION); }
   function stop()  { if (timer) { clearInterval(timer); timer = null; } }
   function restart() { stop(); start(); }
- 
+
   prev.addEventListener('click', function(){ go(current - 1); restart(); });
   next.addEventListener('click', function(){ go(current + 1); restart(); });
   slider.addEventListener('mouseenter', stop);
   slider.addEventListener('mouseleave', start);
- 
+
   start();
 })();
 </script>
- 
+
 <!-- ===== 共通パーツ(ヘッダー・ナビ・フッター) ===== -->
 <script src="common.js"></script>
-<script>initPage("index.html");</script>
+<script>initPage("index-e.html", "en");</script>
+
 </body>
 </html>
